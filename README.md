@@ -59,6 +59,9 @@ Reference:
 
 - For gallery Style
   - https://www.hayo.com/posts
+- For gallery Functionality
+  - Maintaining image aspect ratios in a three-column layout
+  - https://blog.logrocket.com/responsive-image-gallery-css-flexbox/
 - For Vue Transition:
   - https://www.youtube.com/watch?v=gAwKhi7Huhc
 - For Button Hover Effect:
@@ -77,3 +80,8 @@ Bugs:
 
 - Found in App.vue
   - On <Transition></Transition> if you use 'mode="out-in"' the child component should just be 1 node only, because if you have more than one child component, then it will cause a bug of after not rendering the page after route-navigations.
+
+#! BIG BUG: on GalleryView.vue
+
+- the merch is causing the last imageLoadCount to be not complete iterate.
+- solution: deactivate the imageLoad, more like did not use the isGalleryReady boolean

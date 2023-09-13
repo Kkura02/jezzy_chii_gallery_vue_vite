@@ -4,13 +4,13 @@
       <div class="slider-bg1"></div>
       <div class="slider-bg2"></div>
       <!-- Carousel inner -->
-      <div class="flex overflow-hidden relative w-[350px] h-[200px] md:w-[800px] md:h-[400px]">
+      <div class="carousel-innner flex overflow-hidden relative w-[350px] h-[200px] md:w-[800px] md:h-[400px] border-4 border-solid border-kokoWhite rounded-md transition ease-in-out delay-200 bg-transparent hover:bg-kokoEyePink duration-500 ">
           <!-- Carousel-item-component-->
           <div v-for="(slide,index) in slides" :key="`item-${index}`">
             <!-- Carousel-item-inside-->
             <transition :name="transitionEffect">
               <div class="absolute bottom-0 top-0 left-0 right-0" v-show="currentSlide === index">
-                <img class="object-cover h-full w-full rounded-md" :src="slide">
+                <img class="object-contain h-full w-full rounded-md" :src="slide">
               </div>
             </transition>
             <!-- Carousel-item -->
@@ -24,7 +24,7 @@
           </button>
         </div>
       </div>
-      <div class="hidden sm:flex group-hover:hidden opacity-20 absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
+      <div class="hidden sm:flex group-hover:hidden opacity-10 absolute inset-0 bg-gradient-to-b from-black via-transparent to-black rounded-md"></div>
       <!-- <p class="text-3xl">{{ currentSlide }}</p> -->
     </div>
 </template>
@@ -95,6 +95,15 @@ export default {
   @apply transform transition-all delay-200 duration-500 ease-in-out shadow-2xl w-full h-full absolute rounded-md
 }
 
+.carousel-inner{
+  -webkit-transition: background-color 1000ms linear;
+    -moz-transition: background-color 1000ms linear;
+    -o-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
+
+    @apply transition ease-in-out delay-200 duration-500 bg-kokoWhite group-hover:bg-gradient-to-tr from-kokosecondary to-kokoprimary
+}
 /* Hide to Reveal */
 /* .carousel:hover .slider-bg1{
   @apply -translate-y-3 -translate-x-3 sm:-translate-y-6 sm:-translate-x-6 bg-kokoprimary

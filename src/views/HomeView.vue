@@ -20,9 +20,11 @@ export default{
 </script>
 
 <template>
-  <main class="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-8 sm:gap-32 h-full">
-    <div class="w-full sm:w-1/2 h-full flex flex-col items-center justify-center gap-4 sm:px-auto">
-        <img class="object-contain rounded-full w-[50%] sm:w-3/4" :src="pfp" alt="jezzy_chii">
+  <main>
+    <div class="info-section">
+      <div class="pfp-cont">
+        <img class="pfp" :src="pfp" alt="jezzy_chii">
+      </div>
         <h1>Jezzy Chii</h1>
         <p>Artist/Illustrator</p>
           <RouterLink :to="{name: 'gallery'}" class="hidden sm:flex">
@@ -35,3 +37,27 @@ export default{
       </RouterLink>
   </main>
 </template>
+
+<style>
+  main{
+    @apply flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-8 sm:gap-32 h-full
+  }
+
+  .info-section {
+    padding: 0 auto;
+
+    @apply w-full sm:w-1/2 h-full flex flex-col items-center justify-center gap-4
+  }
+
+  .pfp-cont{
+    border-radius: 50%;
+    background: linear-gradient(225deg, #f6d4cb, #7569b7);
+    box-shadow:  -20px 20px 60px #968dd8,
+                20px -20px 60px #f8f7fd;
+
+    @apply rounded-full flex justify-center p-0 w-[50%] sm:w-3/4 p-1
+  }
+  .pfp{
+    @apply object-contain rounded-full w-full
+  }
+</style>
