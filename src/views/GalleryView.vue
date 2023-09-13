@@ -1,6 +1,5 @@
 <template>
   <section>
-    <!-- <Button @click="navBack" contStyle="absolute top-0 left-5" btnStyle="rounded-full py-2 px-3" text="<-"/> -->
     <div>
       <h1>this is gallery</h1>
     </div>
