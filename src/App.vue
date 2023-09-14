@@ -1,16 +1,14 @@
 <script setup>
+import { onMounted, ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
-  <div class="flex justify-center items-center w-full h-full">
     <RouterView v-slot="{ Component }">
       <Transition name="route-trans" mode="out-in">
         <component :is="Component"/>
       </Transition>
     </RouterView>
-  </div>
-
 </template>
 
 <style>
@@ -21,7 +19,7 @@ import { RouterLink, RouterView } from 'vue-router';
 
   font-weight: normal; */
 
-  @apply flex z-[3] my-0 mx-auto p-[1rem] font-normal h-full w-full
+  @apply flex z-[3] mx-auto p-[1rem] font-normal min-h-screen w-full justify-center
 }
 
 .route-trans-enter-active, 

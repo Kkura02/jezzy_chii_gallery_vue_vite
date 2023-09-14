@@ -1,6 +1,6 @@
 <template>
   <!-- Carousel -->
-    <div @mouseenter="pauseAutoPlay" @mouseleave="resumeAutoPlay" class="carousel w-full h-full flex items-start justify-center max-w-full min-h-full group relative rounded-md">
+    <div @mouseenter="pauseAutoPlay" @mouseleave="resumeAutoPlay" class="carousel w-full h-full flex items-center justify-center max-w-full min-h-full group relative rounded-md">
       <div class="slider-bg1"></div>
       <div class="slider-bg2"></div>
       <!-- Carousel inner -->
@@ -24,7 +24,7 @@
           </button>
         </div>
       </div>
-      <div class="hidden sm:flex group-hover:hidden opacity-10 absolute inset-0 bg-gradient-to-b from-black via-transparent to-black rounded-md"></div>
+      <div class="vignette"></div>
       <!-- <p class="text-3xl">{{ currentSlide }}</p> -->
     </div>
 </template>
@@ -93,6 +93,15 @@ export default {
 .slider-bg1,
 .slider-bg2{
   @apply transform transition-all delay-200 duration-500 ease-in-out shadow-2xl w-full h-full absolute rounded-md
+}
+.vignette{
+  @apply hidden sm:flex group-hover:hidden opacity-10 absolute w-full h-full bg-gradient-to-b from-black via-transparent to-black rounded-md
+}
+
+.slider-bg1,
+.slider-bg2,
+.vignette{
+  @apply h-[400px]
 }
 
 .carousel-inner{

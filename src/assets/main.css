@@ -5,6 +5,20 @@
 @tailwind utilities;
 
 
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    /* place-items: center; */
+  }
+}
+@media (max-width: 768px) {
+  body{
+    display: flex;
+    /* place-items: center; */
+
+  }
+}
+
 #bg-cont{
   position: fixed;
   min-width: 100vw;
@@ -19,20 +33,25 @@
   background-size: 30px 30px;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.custom-shape-divider-top-1694676294 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
 }
-@media (max-width: 768px) {
-  body{
-    display: flex;
-    /* flex-direction: column; */
-    place-items: center;
 
-    /* @apply flex flex-col place-items-center */
-  }
+.custom-shape-divider-top-1694676294 svg {
+  position: relative;
+  display: block;
+  width: calc(111% + 1.3px);
+  height: 119px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1694676294 .shape-fill {
+  fill: #F8F7FD;
 }
 
 h1{

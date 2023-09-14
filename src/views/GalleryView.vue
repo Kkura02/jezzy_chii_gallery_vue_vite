@@ -1,26 +1,27 @@
 <template>
-  <section>
-    <h1>this is gallery</h1>
-    <select v-model="category" @keydown.enter.prevent>
-      <option value="sfw">SFW</option>
-      <option value="merch">MERCH</option>
-      <option value="nsfw">NSFW</option>
-    </select>
-    <transition name="gallery-trans" mode="out-in">
-      <div class="gallery-cont">
-        <!-- temporarily deactivate the image loaded validator. as the merch is causing problem -->
-          <div v-show="true" class="gallery-layout">
-            <div v-for="(group,groupIndex) in groupedImages" :key="groupIndex" class="column">
-              <div v-for="(image, imageIndex) in group" :key="imageIndex" class="gallery-item" >
-                <img :src="image" :alt="`Image ${image}`" @load="imageLoaded">
-              </div>
-            </div>
+  <section id="gallery">
+    <div class="flex justify-between w-full">
+      <h1>Gallery</h1>
+      <select v-model="category">
+        <option @click="toggleAnimationClass" value="sfw">SFW</option>
+        <option @click="toggleAnimationClass" value="merch">MERCH</option>
+        <option @click="toggleAnimationClass" value="nsfw">NSFW</option>
+      </select>
+    </div>
+
+    <div class="gallery-cont">
+      <section :key="category" class="gallery-layout" :class="{ 'gallery-trans-enter': applyAnimation, 'gallery-trans-exit' : !applyAnimation}">
+        <div v-for="(group,groupIndex) in groupedImages" :key="groupIndex" class="column">
+          <div v-for="(image, imageIndex) in group" :key="imageIndex" class="gallery-item" >
+            <img :src="image" :alt="`Image ${image}`" @load="imageLoaded">
           </div>
-        <div v-if="false" class="flex justify-center">
-          <div class="spinner"></div>
         </div>
-      </div>
-    </transition>
+      </section>
+      <!-- <div v-if="false" class="flex justify-center">
+        <div class="spinner"></div>
+      </div> -->
+    </div>
+    
   </section>
 </template>
 
@@ -39,6 +40,9 @@ export default {
     const groupedImages = ref([]);
     const imageLoadCount = ref(0);
     const isGalleryReady = ref(false);
+    const applyAnimation = ref(true);
+
+    // Method to toggle animation class
 
     const images = computed(() => {
       return gallery[0][category.value] || [];
@@ -50,7 +54,7 @@ export default {
 
     const imageLoaded = () => {
       imageLoadCount.value++;
-      console.log(`Image ${imageLoadCount.value} loaded`);
+      // console.log(`Image ${imageLoadCount.value} loaded`);
       if (imageLoadCount.value === getTotalImageCount.value) {
         isGalleryReady.value = true;
       }
@@ -68,12 +72,19 @@ export default {
     // Watch for changes in the category and reset image-related values
     watch(category, () => {
       // Reset values when the category changes
-      console.log(images.value)
+      // console.log(`images: ${images.value}`)
       imageLoadCount.value = 0;
-      isGalleryReady.value = false;
 
       // Split images into groups
+      // console.log(`applyAnimation before: ${applyAnimation.value}`)
       splitImagesIntoGroups();
+      applyAnimation.value = false
+      
+
+      setTimeout(() => {
+        applyAnimation.value = true
+      }, 600)
+      // console.log(`applyAnimation after: ${applyAnimation.value}`)
     });
 
     onBeforeMount(() => {
@@ -81,62 +92,44 @@ export default {
       splitImagesIntoGroups();
     });
 
-    return { category, images, groupedImages, isGalleryReady, imageLoaded, imageError };
+    return { category, images, groupedImages, isGalleryReady, imageLoaded, applyAnimation };
   },
 }
 </script>
 
 <style>
-.gallery-trans-enter-active, 
-.gallery-trans-leave-active{
-  @apply transition-all delay-200 duration-700 ease-in-out
+#gallery{
+  @apply flex flex-col justify-start items-center
 }
-.gallery-trans-enter-from, .gallery-trans-leave-to{
-  @apply opacity-0
-}
-.gallery-trans-enter-from{
-  @apply translate-y-full
-}
-.gallery-trans-leave-to{
-  @apply -translate-y-full
-}
-
 .gallery-cont{
-  @apply sm:mt-10 px-8 sm:px-24 w-full h-full
+  @apply sm:mt-0 px-8 sm:px-24 w-full h-auto py-8
 }
 
 .gallery-layout{
-  /* display: flex;
-  flex-direction: column;
-  gap: 10px; */
-
   @apply flex flex-col gap-[10px]
 }
 .gallery-layout .column{
-  /* display: flex;
-  flex-direction: column;
-  gap: 10px; */
-
   @apply flex flex-col gap-[10px]
 }
-.gallery-item img{
-  /* width: 100%;
-  border-radius: 5px;
-  height: 100%;
-  object-fit: cover; */
 
+.gallery-item img{
   @apply w-full rounded-md h-full object-cover
 }
 
 @media only screen and (min-width: 768px) {
   .gallery-layout {
-    /* flex-direction: row; */
-
     @apply flex-row
   }
 }
 
-.spinner {
+#gallery select{
+  @apply h-fit appearance-none text-center font-bold tracking-wide text-kokodimPurple bg-kokoprimary shadow-inner rounded-lg px-4 py-2 hover:bg-kokoWhite
+}
+#gallery select option{
+  @apply text-center w-full
+}
+
+/* .spinner {
    position: relative;
    width: 22.4px;
    height: 22.4px;
@@ -168,6 +161,65 @@ export default {
    to {
       transform: rotate(360deg);
    }
+} */
+
+.gallery-trans-enter {
+	-webkit-animation: gallery-trans-enter 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: gallery-trans-enter 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes gallery-trans-enter {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes gallery-trans-enter {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.gallery-trans-exit {
+	-webkit-animation: gallery-trans-exit 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: gallery-trans-exit 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@-webkit-keyframes gallery-trans-exit {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+}
+@keyframes gallery-trans-exit {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
 }
 
 </style>
