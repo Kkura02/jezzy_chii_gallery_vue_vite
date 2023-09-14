@@ -6,23 +6,22 @@
       <option value="merch">MERCH</option>
       <option value="nsfw">NSFW</option>
     </select>
-    <transition name="gallery-trans" mode="out-in">
       <div v-if="showGallery" class="gallery-cont">
         <!-- temporarily deactivate the image loaded validator. as the merch is causing problem -->
-        
           <div v-show="true" class="gallery-layout">
-            <div v-for="(group,groupIndex) in groupedImages" :key="groupIndex" class="column">
-              <div v-for="(image, imageIndex) in group" :key="imageIndex" class="gallery-item" >
-                <img :src="image" :alt="`Image ${image}`" @load="imageLoaded" @error="imageError(imageIndex)">
+            <transition name="gallery-trans" mode="out-in">
+              <div v-for="(group,groupIndex) in groupedImages" :key="groupIndex" class="column">
+                <div v-for="(image, imageIndex) in group" :key="imageIndex" class="gallery-item" >
+                  <img :src="image" :alt="`Image ${image}`" @load="imageLoaded" @error="imageError(imageIndex)">
+                </div>
               </div>
-            </div>
+            </transition>
           </div>
-        
         <div v-if="false" class="flex justify-center">
           <div class="spinner"></div>
         </div>
       </div>
-    </transition>
+    
   </section>
 </template>
 
