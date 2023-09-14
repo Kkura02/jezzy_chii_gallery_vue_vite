@@ -6,22 +6,21 @@
       <option value="merch">MERCH</option>
       <option value="nsfw">NSFW</option>
     </select>
-      <div v-if="showGallery" class="gallery-cont">
+    <transition name="gallery-trans" mode="out-in">
+      <div class="gallery-cont">
         <!-- temporarily deactivate the image loaded validator. as the merch is causing problem -->
           <div v-show="true" class="gallery-layout">
-            <transition name="gallery-trans" mode="out-in">
-              <div v-for="(group,groupIndex) in groupedImages" :key="groupIndex" class="column">
-                <div v-for="(image, imageIndex) in group" :key="imageIndex" class="gallery-item" >
-                  <img :src="image" :alt="`Image ${image}`" @load="imageLoaded" @error="imageError(imageIndex)">
-                </div>
+            <div v-for="(group,groupIndex) in groupedImages" :key="groupIndex" class="column">
+              <div v-for="(image, imageIndex) in group" :key="imageIndex" class="gallery-item" >
+                <img :src="image" :alt="`Image ${image}`" @load="imageLoaded">
               </div>
-            </transition>
+            </div>
           </div>
         <div v-if="false" class="flex justify-center">
           <div class="spinner"></div>
         </div>
       </div>
-    
+    </transition>
   </section>
 </template>
 
@@ -55,11 +54,6 @@ export default {
       if (imageLoadCount.value === getTotalImageCount.value) {
         isGalleryReady.value = true;
       }
-    };
-
-    const imageError = (imageIndex) => {
-      console.error(`Image ${imageIndex} encountered an error`);
-      // You can add error handling logic here, if needed
     };
 
     // Function to split images into groups
