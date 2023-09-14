@@ -33,7 +33,7 @@
   background-size: 30px 30px;
 }
 
-.custom-shape-divider-top-1694676294 {
+.custom-shape-divider-top-1694677538 {
   position: absolute;
   top: 0;
   left: 0;
@@ -42,16 +42,24 @@
   line-height: 0;
 }
 
-.custom-shape-divider-top-1694676294 svg {
+.custom-shape-divider-top-1694677538 svg {
   position: relative;
   display: block;
-  width: calc(111% + 1.3px);
-  height: 119px;
+  width: calc(142% + 1.3px);
+  height: 99px;
   transform: rotateY(180deg);
 }
 
-.custom-shape-divider-top-1694676294 .shape-fill {
+.custom-shape-divider-top-1694677538 .shape-fill {
   fill: #F8F7FD;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-top-1694677538 svg {
+      width: calc(150% + 1.3px);
+      height: 73px;
+  }
 }
 
 h1{

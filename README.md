@@ -74,7 +74,8 @@ Progress:
 - Setted Color palette in tailwind config
 - Ongoing Custome SLider......finishing touches nalnag Put transitions on hover
 - Home Page done, but requires more UI beautification.
-- Do the Gallery Next....
+- Do the Gallery Next.... Semi Completed the Gallery,
+- Add function that onclikc of Images will display a modal showing a larger view for that image.
 
 Bugs:
 
