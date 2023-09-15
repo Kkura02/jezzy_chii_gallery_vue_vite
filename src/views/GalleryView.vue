@@ -13,6 +13,7 @@
       <section :key="category" class="gallery-layout" :class="{ 'gallery-trans-enter': applyAnimation, 'gallery-trans-exit' : !applyAnimation}">
         <div v-for="(group,groupIndex) in groupedImages" :key="groupIndex" class="column">
           <div v-for="(image, imageIndex) in group" :key="imageIndex" class="gallery-item" >
+            <div class="img-filter"></div>
             <img :src="image" :alt="`Image ${image}`" @load="imageLoaded">
           </div>
         </div>
@@ -112,8 +113,19 @@ export default {
   @apply flex flex-col gap-[10px]
 }
 
+.gallery-item{
+  @apply cursor-pointer relative
+}
+.gallery-item:hover{
+  box-shadow: 0px 0px 20px 1px #f8f7fd;
+}
+
 .gallery-item img{
   @apply w-full rounded-md h-full object-cover
+}
+
+.img-filter{
+  @apply absolute w-full h-full bg-kokoEyeLiner rounded-md bg-opacity-30 hover:bg-opacity-0
 }
 
 @media only screen and (min-width: 768px) {

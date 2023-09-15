@@ -54,6 +54,8 @@ export default {
  color: lightcoral;
  box-shadow: 0 0.4rem #dfd9d9;
  cursor: pointer;
+
+ @apply transition ease-in-out delay-100 duration-300
 }
 
 .btn-default-style:active {
