@@ -76,6 +76,7 @@ Progress:
 - Home Page done, but requires more UI beautification.
 - Do the Gallery Next.... Semi Completed the Gallery,
 - Add function that onclikc of Images will display a modal showing a larger view for that image.
+- somehow beautify the gallery.. not yet done with the zoom on click, but now I created a custom(not really) dropdown, we need to make it dynamic component to accept multiple items
 
 Bugs:
 

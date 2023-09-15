@@ -2,11 +2,12 @@
   <section id="gallery">
     <div class="flex justify-between w-full">
       <h1>Gallery</h1>
-      <select v-model="category">
+      <!-- <select v-model="category">
         <option @click="toggleAnimationClass" value="sfw">SFW</option>
         <option @click="toggleAnimationClass" value="merch">MERCH</option>
         <option @click="toggleAnimationClass" value="nsfw">NSFW</option>
-      </select>
+      </select> -->
+      <DropDown/>
     </div>
 
     <div class="gallery-cont">
@@ -29,10 +30,11 @@
 <script>
 import { computed, onBeforeMount, onMounted, ref, watch, watchEffect } from 'vue';
 import {gallery} from '../constants';
+import DropDown from '../components/DropDown.vue';
 
 export default {
   components:{
-
+    DropDown
   },
 
   setup() {
@@ -134,12 +136,12 @@ export default {
   }
 }
 
-#gallery select{
+/* #gallery select{
   @apply h-fit appearance-none text-center font-bold tracking-wide text-kokodimPurple bg-kokoprimary shadow-inner rounded-lg px-4 py-2 hover:bg-kokoWhite
 }
 #gallery select option{
   @apply text-center w-full
-}
+} */
 
 /* .spinner {
    position: relative;
