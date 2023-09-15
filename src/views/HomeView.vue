@@ -7,12 +7,12 @@
         <h1>Jezzy Chii</h1>
         <p>Artist/Illustrator</p>
           <RouterLink :to="{name: 'gallery'}" class="hidden sm:flex">
-            <Button contStyle="relative" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
+            <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
           </RouterLink>
     </div>
     <SliderCustom/>
       <RouterLink :to="{name: 'gallery'}" class="sm:hidden flex">
-        <Button contStyle="relative" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
+        <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
       </RouterLink>
   </main>
 </template>

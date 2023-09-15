@@ -1,7 +1,8 @@
 <template>
-    <div :class="contStyle" class="flex mt-2 sm:mt-8">
-        <button :class="btnStyle" class="shadow-md hover-animation border-2 border-solid border-kokoWhite text-kokoEyeLiner">
+    <div :class="contStyle" class="">
+        <button :class="btnStyle" class="btn-default-style">
             {{ text }}
+            <slot></slot>
         </button>
     </div>
 </template>
@@ -37,5 +38,38 @@ export default {
 }
 .hover-animation:hover{
     @apply border-solid border-2 border-transparent text-kokoWhite
+}
+
+.btn-default-style{
+    /* @apply shadow-md hover-animation border-2 border-solid border-kokoWhite text-kokoEyeLiner */
+}
+
+.btn-default-style {
+ background-color: #eee;
+ border: none;
+ padding: .5rem;
+ font-size: 1rem;
+ width: 10em;
+ border-radius: 1rem;
+ color: lightcoral;
+ box-shadow: 0 0.4rem #dfd9d9;
+ cursor: pointer;
+}
+
+.btn-default-style:active {
+ color: white;
+ box-shadow: 0 0.2rem #dfd9d9;
+ transform: translateY(0.2rem);
+}
+
+.btn-default-style:hover:not(:disabled) {
+ background: lightcoral;
+ color: white;
+ text-shadow: 0 0.1rem #bcb4b4;
+}
+
+.btn-default-style:disabled {
+ cursor: auto;
+ color: grey;
 }
 </style>
