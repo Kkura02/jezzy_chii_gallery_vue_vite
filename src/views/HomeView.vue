@@ -1,5 +1,5 @@
 <template>
-  <main class="home">
+  <main id="home">
     <div class="info-section">
       <div class="pfp-cont">
         <img class="pfp" :src="pfp" alt="jezzy_chii">
@@ -11,9 +11,9 @@
           </RouterLink>
     </div>
     <SliderCustom/>
-      <RouterLink :to="{name: 'gallery'}" class="sm:hidden flex">
-        <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
-      </RouterLink>
+    <RouterLink :to="{name: 'gallery'}" class="sm:hidden flex">
+      <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
+    </RouterLink>
   </main>
 </template>
 
@@ -60,7 +60,7 @@ export default{
   .info-section {
     padding: 0 auto;
 
-    @apply w-full sm:w-1/2 h-full flex flex-col items-center justify-center gap-4
+    @apply w-full sm:w-1/2 sm:h-full flex flex-col items-center justify-center gap-4
   }
 
   .pfp-cont{

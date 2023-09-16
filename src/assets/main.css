@@ -22,6 +22,7 @@
 #bg-cont{
   position: fixed;
   min-width: 100vw;
+  min-height: 100vh;
   width: 100%;
   height: 100%;
   top: 0;
@@ -33,7 +34,7 @@
   background-size: 30px 30px;
 }
 
-.custom-shape-divider-top-1694677538 {
+.custom-shape-divider-top-1694874631 {
   position: absolute;
   top: 0;
   left: 0;
@@ -42,23 +43,22 @@
   line-height: 0;
 }
 
-.custom-shape-divider-top-1694677538 svg {
+.custom-shape-divider-top-1694874631 svg {
   position: relative;
   display: block;
-  width: calc(142% + 1.3px);
-  height: 99px;
-  transform: rotateY(180deg);
+  width: calc(130% + 1.3px);
+  height: 133px;
 }
 
-.custom-shape-divider-top-1694677538 .shape-fill {
-  fill: #F8F7FD;
+.custom-shape-divider-top-1694874631 .shape-fill {
+  fill: #FFFFFF;
 }
 
 /** For mobile devices **/
 @media (max-width: 767px) {
-  .custom-shape-divider-top-1694677538 svg {
-      width: calc(150% + 1.3px);
-      height: 73px;
+  .custom-shape-divider-top-1694874631 svg {
+      width: calc(140% + 1.3px);
+      height: 69px;
   }
 }
 

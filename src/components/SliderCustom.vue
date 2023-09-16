@@ -1,6 +1,6 @@
 <template>
   <!-- Carousel -->
-    <div @mouseenter="pauseAutoPlay" @mouseleave="resumeAutoPlay" class="carousel w-full h-full flex items-center justify-center max-w-full min-h-full group relative rounded-md">
+    <div @mouseenter="pauseAutoPlay" @mouseleave="resumeAutoPlay" class="carousel w-full h-fit sm:h-full flex items-center justify-center max-w-full sm:min-h-full group relative rounded-md">
       <div class="slider-bg1"></div>
       <div class="slider-bg2"></div>
       <!-- Carousel inner -->
@@ -101,7 +101,7 @@ export default {
 .slider-bg1,
 .slider-bg2,
 .vignette{
-  @apply h-[400px]
+  @apply h-[200px] sm:h-[400px]
 }
 
 .carousel-inner{
