@@ -12,7 +12,8 @@ module.exports = {
         kokoEyedimPurple: "#423b96",
         kokoEyelightPurple: "#7569b7",
         kokoEyePink: "#e3c5db",
-        kokoEyeLiner: "#2e172b"
+        kokoEyeLiner: "#2e172b",
+        kokoCoralPink: "#f08080"
       }
     },
   },

@@ -45,17 +45,17 @@ export default {
 }
 
 .btn-default-style {
- background-color: #eee;
+ background-color: #f8f7fd;
  border: none;
  padding: .5rem;
  font-size: 1rem;
- width: 10em;
+ /* width: 10em; */
  border-radius: 1rem;
- color: lightcoral;
+ color: #f08080;
  box-shadow: 0 0.4rem #dfd9d9;
  cursor: pointer;
 
- @apply transition ease-in-out delay-100 duration-300
+ @apply transition ease-in-out delay-100 duration-300 w-[8em] sm:w-[10em] 
 }
 
 .btn-default-style:active {

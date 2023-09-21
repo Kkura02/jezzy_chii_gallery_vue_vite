@@ -4,9 +4,9 @@ const featuredImages = [kirara, ningguang, raiden, regular1]
 
 export const gallery = [
     {
-        sfw: [regular1, kirara, ningguang, raiden, regular1, kirara, ningguang, raiden, regular1, kirara, ningguang, raiden, regular1, kirara, ningguang, raiden,],
-        merch: [regular1, regular1, regular1, regular1, raiden,],
-        nsfw: [raiden, regular1, kirara, kirara, kirara]
+        SFW: [regular1, kirara, ningguang, raiden, regular1, kirara, ningguang, raiden, regular1, kirara, ningguang, raiden, regular1, kirara, ningguang, raiden,],
+        MERCH: [regular1, regular1, regular1, regular1, raiden,],
+        NSFW: [raiden, regular1, kirara, kirara, kirara]
     }
 ]
 

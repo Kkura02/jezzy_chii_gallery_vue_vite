@@ -1,13 +1,13 @@
 <template>
   <section id="gallery">
-    <div class="flex justify-between w-full">
+    <div class="flex items-center justify-between py-4 w-full">
       <h1>Gallery</h1>
       <!-- <select v-model="category">
         <option @click="toggleAnimationClass" value="sfw">SFW</option>
         <option @click="toggleAnimationClass" value="merch">MERCH</option>
         <option @click="toggleAnimationClass" value="nsfw">NSFW</option>
       </select> -->
-      <DropDown/>
+      <DropDown :selectedCategory="selectedCategory" @update:selectedOption="updateSelectedCategory"/>
     </div>
 
     <div class="gallery-cont">
@@ -38,7 +38,7 @@ export default {
   },
 
   setup() {
-    const category = ref("sfw");
+    const currentCategory = ref("SFW");
     const groupCount = ref(3);
     const groupedImages = ref([]);
     const imageLoadCount = ref(0);
@@ -48,7 +48,7 @@ export default {
     // Method to toggle animation class
 
     const images = computed(() => {
-      return gallery[0][category.value] || [];
+      return gallery[0][currentCategory.value] || [];
     });
 
     const getTotalImageCount = computed(() => {
@@ -72,8 +72,13 @@ export default {
       }
     };
 
+    const updateSelectedCategory = (category) => {
+      currentCategory.value = category;
+      console.log(currentCategory.value)
+    }
+
     // Watch for changes in the category and reset image-related values
-    watch(category, () => {
+    watch(currentCategory, () => {
       // Reset values when the category changes
       // console.log(`images: ${images.value}`)
       imageLoadCount.value = 0;
@@ -95,7 +100,7 @@ export default {
       splitImagesIntoGroups();
     });
 
-    return { category, images, groupedImages, isGalleryReady, imageLoaded, applyAnimation };
+    return { currentCategory, images, groupedImages, isGalleryReady, imageLoaded, applyAnimation, updateSelectedCategory };
   },
 }
 </script>
