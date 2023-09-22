@@ -10,7 +10,7 @@
             <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
           </RouterLink>
     </div>
-    <SliderCustom/>
+    <SliderCustom @click.right.prevent/>
     <RouterLink :to="{name: 'gallery'}" class="sm:hidden flex">
       <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
     </RouterLink>

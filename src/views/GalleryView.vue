@@ -10,7 +10,7 @@
         <div v-for="(group,groupIndex) in groupedImages" :key="groupIndex" class="column">
           <div v-for="(image, imageIndex) in group" :key="imageIndex" class="gallery-item" @click="imageClicked(image)">
             <div class="img-filter"></div>
-            <img :src="image" :alt="`Image ${image}`" @load="imageLoaded">
+            <img :src="image" :alt="`Image ${image}`" @load="imageLoaded" @click.right.prevent>
           </div>
         </div>
       </section>
@@ -128,10 +128,10 @@ export default {
 }
 
 .gallery-layout{
-  @apply flex flex-col gap-[10px]
+  @apply flex flex-row gap-[10px] justify-center items-start
 }
 .gallery-layout .column{
-  @apply flex flex-col gap-[10px]
+  @apply flex flex-col gap-[10px] w-[33%]
 }
 
 .gallery-item{
