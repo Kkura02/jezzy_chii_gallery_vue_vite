@@ -16,8 +16,8 @@
       </section>
     </div>
     <teleport to='#modal' v-if="isImageClicked">
-      <div class="w-full h-full fixed flex justify-center items-center top-0 left-0 bg-slate-900 bg-opacity-50 filter backdrop-blur-sm cursor-pointer px-4 sm:px-12" @click="isImageClicked = false">
-        <img :src="enlargedImage" :alt="`Image: ${enlargedImage}`" class="w-fit h-fit">
+      <div class="w-full h-full fixed flex justify-center items-center top-0 left-0 bg-slate-900 bg-opacity-50 filter backdrop-blur-sm cursor-pointer px-4 sm:px-12 py-4 sm:py-12" @click="isImageClicked = false">
+        <img :src="enlargedImage" :alt="`Image: ${enlargedImage}`" class="w-fit h-fit object-contain">
       </div>
     </teleport>
   </section>
@@ -77,16 +77,18 @@ export default {
       // console.log(`images: ${images.value}`)
       imageLoadCount.value = 0;
 
-      // Split images into groups
-      // console.log(`applyAnimation before: ${applyAnimation.value}`)
-      splitImagesIntoGroups();
+      // Setting the applyAnimation to false causing, giving the gallery the exit animation.
       applyAnimation.value = false
-      
 
+      // Split images into groups, basicallly this is the one rendering the images when category changes
+      setTimeout(() => {
+        splitImagesIntoGroups();
+      },500)
+      
+      // Delayed application of the enter animation, setting to true giving the galler enter animation
       setTimeout(() => {
         applyAnimation.value = true
       }, 600)
-      // console.log(`applyAnimation after: ${applyAnimation.value}`)
     });
 
     onBeforeMount(() => {
