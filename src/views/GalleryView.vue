@@ -1,6 +1,6 @@
 <template>
   <section id="gallery">
-    <div class="flex items-center justify-between py-4 w-full">
+    <div class="flex items-center justify-between sm:justify-start sm:gap-12 py-4 w-full">
       <h1>Gallery</h1>
       <DropDown :selectedCategory="selectedCategory" @update:selectedOption="updateSelectedCategory"/>
     </div>
@@ -128,10 +128,10 @@ export default {
 }
 
 .gallery-layout{
-  @apply flex flex-row gap-[10px] justify-center items-start
+  @apply flex flex-col sm:flex-row gap-[10px] justify-center items-start
 }
 .gallery-layout .column{
-  @apply flex flex-col gap-[10px] w-[33%]
+  @apply flex flex-col gap-[10px] sm:w-[33%]
 }
 
 .gallery-item{

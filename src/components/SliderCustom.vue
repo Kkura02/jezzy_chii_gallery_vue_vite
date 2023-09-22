@@ -4,7 +4,7 @@
       <div class="slider-bg1"></div>
       <div class="slider-bg2"></div>
       <!-- Carousel inner -->
-      <div class="carousel-innner flex overflow-hidden relative w-[350px] h-[200px] md:w-[800px] md:h-[400px] border-4 border-solid border-kokoWhite rounded-md transition ease-in-out delay-200 bg-transparent hover:bg-kokoEyePink duration-500 ">
+      <div class="carousel-inner flex overflow-hidden relative border-4 border-solid border-kokoWhite rounded-md transition ease-in-out delay-200 bg-transparent hover:bg-kokoEyePink duration-500 ">
           <!-- Carousel-item-component-->
           <div v-for="(slide,index) in slides" :key="`item-${index}`">
             <!-- Carousel-item-inside-->
@@ -95,13 +95,15 @@ export default {
   @apply transform transition-all delay-200 duration-500 ease-in-out shadow-2xl w-full h-full absolute rounded-md
 }
 .vignette{
-  @apply hidden sm:flex group-hover:hidden opacity-10 absolute w-full h-full bg-gradient-to-b from-black via-transparent to-black rounded-md
+  @apply z-[5] hidden sm:flex group-hover:hidden opacity-10 absolute w-full h-full bg-gradient-to-b from-black via-transparent to-black rounded-md
 }
 
+.carousel-inner,
 .slider-bg1,
 .slider-bg2,
-.vignette{
-  @apply h-[200px] sm:h-[400px]
+.vignette
+{
+  @apply h-[200px] w-[350px] sm:h-[400px] sm:w-[800px] 2xl:h-[500px] 2xl:w-[1000px] 
 }
 
 .carousel-inner{

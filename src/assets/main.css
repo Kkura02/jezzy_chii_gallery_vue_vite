@@ -70,8 +70,11 @@
 }
 
 h1{
-  @apply text-5xl font-bold leading-[3rem]
+  @apply text-5xl sm:text-6xl font-bold leading-[3rem]
+}
+h2{
+  @apply text-4xl sm:text-5xl font-bold leading-[3rem]
 }
 p{
-  @apply text-base leading-5
+  @apply sm:text-2xl leading-5
 }

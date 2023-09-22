@@ -1,14 +1,17 @@
 <template>
   <main id="home">
     <div class="info-section">
-      <div class="pfp-cont">
+      <!-- <div class="pfp-cont">
         <img class="pfp" :src="pfp" alt="jezzy_chii">
+      </div> -->
+      <div class="flex flex-col justify-evenly items-start">
+        <h2 class="font-thin">Hello!</h2>
+        <h1 class="">I'm Jezzy Chii,</h1>
+        <p class="mt-6 text-2xl">a freelance illustrator specializing in anime-style character illustrations.</p>
       </div>
-        <h1>Jezzy Chii</h1>
-        <p>Artist/Illustrator</p>
-          <RouterLink :to="{name: 'gallery'}" class="hidden sm:flex">
-            <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
-          </RouterLink>
+      <RouterLink :to="{name: 'gallery'}" class="hidden sm:flex">
+        <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
+      </RouterLink>
     </div>
     <SliderCustom @click.right.prevent/>
     <RouterLink :to="{name: 'gallery'}" class="sm:hidden flex">
@@ -54,7 +57,7 @@ export default{
   }
 
   main{
-    @apply flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-8 sm:gap-32 h-full
+    @apply flex flex-col sm:flex-row justify-center sm:justify-center items-center gap-8 sm:gap-12 h-full px-[2rem] sm:px-[4rem]
   }
 
   .info-section {

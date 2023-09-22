@@ -20,7 +20,7 @@ import { RouterLink, RouterView } from 'vue-router';
 
   font-weight: normal; */
 
-  @apply flex mx-auto px-[1rem] font-normal min-h-screen w-full justify-center
+  @apply flex mx-auto px-[1rem] sm:px-[2rem] font-normal min-h-screen w-full justify-center
 }
 
 .route-trans-enter-active, 
