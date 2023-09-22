@@ -76,7 +76,9 @@ Progress:
 - Home Page done, but requires more UI beautification.
 - Do the Gallery Next.... Semi Completed the Gallery,
 - somehow beautify the gallery.. but now I created a custom(not really) dropdown, we need to make it dynamic component to accept multiple items.. DONE
-- Add function that onclikc of Images will display a modal showing a larger view for that image.
+- Add function that onclikc of Images will display a modal showing a larger view for that image...DONE
+- Made some layout Adjustments and Imported the real images to be use.
+- Ongoing... Adding COntact buttons on the HomeView, thinking of modifying the button component...
 
 Bugs:
 

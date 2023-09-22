@@ -55,7 +55,11 @@ export default {
  box-shadow: 0 0.4rem #dfd9d9;
  cursor: pointer;
 
- @apply transition ease-in-out delay-100 duration-300 w-[8em] sm:w-[10em] 
+ @apply transition ease-in-out delay-100 duration-300
+}
+
+.standard-size{
+    @apply w-[8em] sm:w-[10em] 
 }
 
 .btn-default-style:active {

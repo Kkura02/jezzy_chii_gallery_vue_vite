@@ -9,13 +9,33 @@
         <h1 class="">I'm Jezzy Chii,</h1>
         <p class="mt-6 text-2xl">a freelance illustrator specializing in anime-style character illustrations.</p>
       </div>
-      <RouterLink :to="{name: 'gallery'}" class="hidden sm:flex">
-        <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
-      </RouterLink>
+      <div class="flex flex-row justify-evenly items-center">
+        <div class="flex flex-col justify-evenly items-center">
+          <Button btnStyle="">
+            <a href="" target="_blank">
+              <img class="icon" src="" alt="twitter">
+            </a>
+          </Button>
+          <Button btnStyle="">
+            <a href="" target="_blank">
+              <img class="icon" src="" alt="discord">
+            </a>
+          </Button>
+          <Button btnStyle="">
+            <a href="" target="_blank">
+              <img class="icon" src="" alt="email">
+            </a>
+          </Button>
+        </div>
+        <RouterLink :to="{name: 'gallery'}" class="hidden sm:flex">
+          <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="standard-size text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
+        </RouterLink>
+      </div>
+      
     </div>
     <SliderCustom @click.right.prevent/>
     <RouterLink :to="{name: 'gallery'}" class="sm:hidden flex">
-      <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
+      <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="standard-size text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
     </RouterLink>
   </main>
 </template>

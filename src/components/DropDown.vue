@@ -1,6 +1,6 @@
 <template>
   <section class="relative">
-    <Button @click="isDropped = !isDropped">
+    <Button btnStyle="standard-size" @click="isDropped = !isDropped">
       <span :key="selectedCateg" class="font-bold">{{ selectedCateg }}</span>
     </Button>
     <div v-show="isDropped" class="category-list-cont shadow-md rounded-lg">
