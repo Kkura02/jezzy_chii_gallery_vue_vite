@@ -5,6 +5,7 @@ import { RouterLink, RouterView } from 'vue-router';
 
 <template>
     <RouterView v-slot="{ Component }">
+      <div id="modal"></div>
       <Transition name="route-trans" mode="out-in">
         <component :is="Component"/>
       </Transition>
@@ -19,7 +20,7 @@ import { RouterLink, RouterView } from 'vue-router';
 
   font-weight: normal; */
 
-  @apply flex z-[3] mx-auto px-[1rem] font-normal min-h-screen w-full justify-center
+  @apply flex mx-auto px-[1rem] font-normal min-h-screen w-full justify-center
 }
 
 .route-trans-enter-active, 

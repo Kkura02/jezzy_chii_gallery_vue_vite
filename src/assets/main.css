@@ -18,6 +18,13 @@
 
   }
 }
+#modal{
+  @apply z-[4] 
+}
+
+#app{
+  @apply z-[3]
+}
 
 #bg-cont{
   position: fixed;

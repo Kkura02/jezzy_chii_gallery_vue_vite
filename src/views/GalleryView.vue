@@ -2,42 +2,41 @@
   <section id="gallery">
     <div class="flex items-center justify-between py-4 w-full">
       <h1>Gallery</h1>
-      <!-- <select v-model="category">
-        <option @click="toggleAnimationClass" value="sfw">SFW</option>
-        <option @click="toggleAnimationClass" value="merch">MERCH</option>
-        <option @click="toggleAnimationClass" value="nsfw">NSFW</option>
-      </select> -->
       <DropDown :selectedCategory="selectedCategory" @update:selectedOption="updateSelectedCategory"/>
     </div>
 
     <div class="gallery-cont">
       <section :key="category" class="gallery-layout" :class="{ 'gallery-trans-enter': applyAnimation, 'gallery-trans-exit' : !applyAnimation}">
         <div v-for="(group,groupIndex) in groupedImages" :key="groupIndex" class="column">
-          <div v-for="(image, imageIndex) in group" :key="imageIndex" class="gallery-item" >
+          <div v-for="(image, imageIndex) in group" :key="imageIndex" class="gallery-item" @click="imageClicked(image)">
             <div class="img-filter"></div>
             <img :src="image" :alt="`Image ${image}`" @load="imageLoaded">
           </div>
         </div>
       </section>
-      <!-- <div v-if="false" class="flex justify-center">
-        <div class="spinner"></div>
-      </div> -->
     </div>
-    
+    <teleport to='#modal' v-if="isImageClicked">
+      <div class="w-full h-full fixed flex justify-center items-center top-0 left-0 bg-slate-900 bg-opacity-50 filter backdrop-blur-sm cursor-pointer px-4 sm:px-12" @click="isImageClicked = false">
+        <img :src="enlargedImage" :alt="`Image: ${enlargedImage}`" class="w-fit h-fit">
+      </div>
+    </teleport>
   </section>
 </template>
 
 <script>
-import { computed, onBeforeMount, onMounted, ref, watch, watchEffect } from 'vue';
+import { computed, onBeforeMount, ref, watch, Teleport} from 'vue';
 import {gallery} from '../constants';
 import DropDown from '../components/DropDown.vue';
 
 export default {
   components:{
-    DropDown
+    DropDown, Teleport
   },
 
   setup() {
+
+    // ******************************************************************
+
     const currentCategory = ref("SFW");
     const groupCount = ref(3);
     const groupedImages = ref([]);
@@ -45,8 +44,8 @@ export default {
     const isGalleryReady = ref(false);
     const applyAnimation = ref(true);
 
+    
     // Method to toggle animation class
-
     const images = computed(() => {
       return gallery[0][currentCategory.value] || [];
     });
@@ -72,11 +71,6 @@ export default {
       }
     };
 
-    const updateSelectedCategory = (category) => {
-      currentCategory.value = category;
-      console.log(currentCategory.value)
-    }
-
     // Watch for changes in the category and reset image-related values
     watch(currentCategory, () => {
       // Reset values when the category changes
@@ -100,7 +94,25 @@ export default {
       splitImagesIntoGroups();
     });
 
-    return { currentCategory, images, groupedImages, isGalleryReady, imageLoaded, applyAnimation, updateSelectedCategory };
+    // ******************************************************************
+    // function for updating the gallery view when changing the category selected
+    const updateSelectedCategory = (category) => {
+      currentCategory.value = category;
+      console.log(currentCategory.value)
+    }
+
+    // ******************************************************************
+    // function for showing up the clicked image in a larger canvas
+    const isImageClicked = ref(false);
+    const enlargedImage = ref();
+
+    const imageClicked = (image) => {
+      enlargedImage.value = image;
+      isImageClicked.value = true
+    }
+
+    // ******************************************************************
+    return { currentCategory, images, groupedImages, isGalleryReady, imageLoaded, applyAnimation, updateSelectedCategory, isImageClicked, imageClicked, enlargedImage};
   },
 }
 </script>
@@ -140,47 +152,6 @@ export default {
     @apply flex-row
   }
 }
-
-/* #gallery select{
-  @apply h-fit appearance-none text-center font-bold tracking-wide text-kokodimPurple bg-kokoprimary shadow-inner rounded-lg px-4 py-2 hover:bg-kokoWhite
-}
-#gallery select option{
-  @apply text-center w-full
-} */
-
-/* .spinner {
-   position: relative;
-   width: 22.4px;
-   height: 22.4px;
-}
-.spinner::before,
-.spinner::after {
-   content: '';
-   width: 100%;
-   height: 100%;
-   display: block;
-   animation: spinner-b4c8mmmd 0.5s backwards, spinner-49opz7md 1.25s 0.5s infinite ease;
-   border: 5.6px solid #f8f7fd;
-   border-radius: 50%;
-   box-shadow: 0 -33.6px 0 -5.6px #f8f7fd;
-   position: absolute;
-}
-
-.spinner::after {
-   animation-delay: 0s, 1.25s;
-}
-
-@keyframes spinner-b4c8mmmd {
-   from {
-      box-shadow: 0 0 0 -5.6px #f8f7fd;
-   }
-}
-
-@keyframes spinner-49opz7md {
-   to {
-      transform: rotate(360deg);
-   }
-} */
 
 .gallery-trans-enter {
 	-webkit-animation: gallery-trans-enter 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
