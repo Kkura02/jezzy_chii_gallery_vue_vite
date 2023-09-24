@@ -17,7 +17,7 @@
     </div>
     <teleport to='#modal' v-if="isImageClicked">
       <div class="w-full h-full fixed flex justify-center items-center top-0 left-0 bg-slate-900 bg-opacity-50 filter backdrop-blur-sm cursor-pointer px-4 sm:px-12 py-4 sm:py-12" @click="isImageClicked = false">
-        <img :src="enlargedImage" :alt="`Image: ${enlargedImage}`" class="w-fit h-fit object-contain">
+        <img :src="enlargedImage" :alt="`Image: ${enlargedImage}`" class="w-fit h-fit max-h-[98vh] object-contain rounded-md">
       </div>
     </teleport>
   </section>
