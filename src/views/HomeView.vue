@@ -10,25 +10,16 @@
         <p class="mt-6 text-2xl">a freelance illustrator specializing in anime-style character illustrations.</p>
       </div>
       <div class="hidden sm:flex flex-row justify-evenly items-center w-full ">
-        <div class="flex flex-col justify-evenly items-center gap-2">
-          <Button btnStyle="">
-            <a href="" target="_blank">
-              <img class="icon" src="" alt="twitter">
-            </a>
-          </Button>
-          <Button btnStyle="">
-            <a href="" target="_blank">
-              <img class="icon" src="" alt="discord">
-            </a>
-          </Button>
-          <Button btnStyle="">
-            <a href="" target="_blank">
-              <img class="icon" src="" alt="email">
+        <div class="flex flex-col justify-evenly items-center gap-2 sm:justify-self-start">
+          <Button @mouseenter="contact.isHover = true" @mouseleave="contact.isHover = false" v-for="(contact,index) in contactz" :key="`contact-${index}`" btnStyle="">
+            <a :href="contact.link" target="_blank">
+              <img v-show="!contact.isHover" class="object-contain max-w-[30px]" :src="contact.icon1" :alt="contact.alt">
+              <img v-show="contact.isHover" class="object-contain max-w-[30px]" :src="contact.icon2" :alt="contact.alt">
             </a>
           </Button>
         </div>
         <RouterLink :to="{name: 'gallery'}">
-          <Button contStyle="relative flex h-[100px]" btnStyle="standard-size text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
+          <Button contStyle="relative flex h-[150px]" btnStyle="standard-size font-bold rounded-md py-2 px-4" text="Explore"/>
         </RouterLink>
       </div>
     </div>
@@ -40,22 +31,13 @@
         <Button contStyle="relative flex mt-2 sm:mt-8" btnStyle="standard-size text-2xl font-bold rounded-md py-2 px-4" text="Explore"/>
       </RouterLink>
       <div class="flex flex-row justify-evenly items-center gap-2">
-          <Button btnStyle="">
-            <a href="" target="_blank">
-              <img class="icon" src="" alt="twitter">
-            </a>
-          </Button>
-          <Button btnStyle="">
-            <a href="" target="_blank">
-              <img class="icon" src="" alt="discord">
-            </a>
-          </Button>
-          <Button btnStyle="">
-            <a href="" target="_blank">
-              <img class="icon" src="" alt="email">
-            </a>
-          </Button>
-        </div>
+        <Button @mouseenter="contact.isHover = true" @mouseleave="contact.isHover = false" v-for="(contact,index) in contactz" :key="`contact-${index}`" btnStyle="">
+          <a :href="contact.link" target="_blank">
+            <img v-show="!contact.isHover" class="object-contain max-w-[30px]" :src="contact.icon1" :alt="contact.alt">
+            <img v-show="contact.isHover" class="object-contain max-w-[30px]" :src="contact.icon2" :alt="contact.alt">
+          </a>
+        </Button>    
+      </div>
     </div>
   </main>
 </template>
@@ -63,6 +45,8 @@
 <script>
 import { ref } from 'vue';
 import {jezzy} from '../assets/Images'
+// import {twitter, discord, email} from '../assets/Icons'
+import {contacts} from '../constants'
 // import Slider from '../components/Slider.vue'
 import SliderCustom from '../components/SliderCustom.vue';
 import Button from '../components/Button.vue';
@@ -74,7 +58,12 @@ export default{
   },
   setup(){
     const pfp = ref(jezzy)
-    return{pfp}
+
+    const contactz = ref(contacts)
+    console.log(contactz.value)
+
+
+    return{pfp, contactz}
   }
 }
 

@@ -103,7 +103,7 @@ export default {
 .slider-bg2,
 .vignette
 {
-  @apply h-[200px] w-[350px] sm:h-[400px] sm:w-[800px] 2xl:h-[500px] 2xl:w-[1000px] 
+  @apply h-[200px] w-[320px] sm:h-[400px] sm:w-[800px] 2xl:h-[500px] 2xl:w-[1000px] 
 }
 
 .carousel-inner{

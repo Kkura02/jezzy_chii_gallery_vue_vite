@@ -124,7 +124,7 @@ export default {
   @apply flex flex-col justify-start items-center
 }
 .gallery-cont{
-  @apply sm:mt-0 px-8 sm:px-24 w-full h-auto py-8
+  @apply sm:mt-0 px-4 sm:px-24 w-full h-auto py-8
 }
 
 .gallery-layout{
@@ -142,7 +142,7 @@ export default {
 }
 
 .gallery-item img{
-  @apply w-full rounded-md h-full object-cover
+  @apply w-full rounded-md h-full object-contain 
 }
 
 .img-filter{
