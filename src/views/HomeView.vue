@@ -9,7 +9,7 @@
         <h1 class="">I'm Jezzy Chii,</h1>
         <p class="mt-6 text-2xl">a freelance illustrator specializing in anime-style character illustrations.</p>
       </div>
-      <div class="hidden sm:flex flex-row justify-evenly items-center w-full ">
+      <div class="hidden sm:flex flex-row justify-start items-center w-full gap-12 pr-12">
         <div class="flex flex-col justify-evenly items-center gap-2 sm:justify-self-start">
           <Button @mouseenter="contact.isHover = true" @mouseleave="contact.isHover = false" v-for="(contact,index) in contactz" :key="`contact-${index}`" btnStyle="">
             <a :href="contact.link" target="_blank">
@@ -19,7 +19,7 @@
           </Button>
         </div>
         <RouterLink :to="{name: 'gallery'}">
-          <Button contStyle="relative flex h-[150px]" btnStyle="standard-size font-bold rounded-md py-2 px-4" text="Explore"/>
+          <Button contStyle="relative flex h-[100px] w-[200px]" btnStyle="flex-1 font-bold rounded-md py-2 px-4" text="Explore"/>
         </RouterLink>
       </div>
     </div>
