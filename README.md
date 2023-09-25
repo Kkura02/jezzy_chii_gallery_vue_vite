@@ -10,9 +10,32 @@ This template should help get you started developing with Vue 3 in Vite.
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
+## Creat Project
+
+```sh
+npm create vite@latest
+```
+
+## Creat Project Settings
+
+```sh
+Project name: <project name>
+Select a framework: Vue
+Select a varian: Customize with create-vue
+Ok to proceed?: y
+ Add Typescript ? No
+ Add JSX Support? No
+ Add Vue Router for Single Page Application Development? Yes
+ Add Pinia for state management? No
+ Add Vitest for Unit Testing? No
+ Add an End-toEnd Testing Solution? No
+ Add ESLint? No
+```
+
 ## Project Setup
 
 ```sh
+cd <project name>
 npm install
 ```
 
