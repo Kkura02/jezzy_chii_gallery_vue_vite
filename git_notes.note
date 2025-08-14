@@ -1,0 +1,106 @@
+How to Pull & Push to github:
+--before doing changes, pull from github first:
+    git pull [master | repo_name]
+
+--After doing changes
+ --to stage the changes:
+     --? if all files
+     git add .
+     --? if one or more files
+     git add readme.md
+     --? you can also stage on UI 
+ 
+ --to commit the changes   
+     --? you can do UI
+     --? you can do bash terminal
+     git commit -m "Commit message"
+ 
+ --to Push
+     --? needs to be on bash terminal since needs to export the proxy first:
+     export https_proxy=http://192.168.36.36:3128
+     --? you can push to master or other branch
+     git push -u origin master
+         --? if the other branch does not exist yet then create them first via bash terminal
+         git checkout -b other
+         --?then push it to that branch
+         git push origin other
+
+###########################################################
+--#How to create a branch sourcing from another branch
+
+
+--first create the new branch and Switch to it(-b option creates the branch if it does not exist)
+```
+git checkout -b feature/ssh-xml-files
+```
+
+--pull from the source branch
+```
+git pull origin develop
+#make changes to your files
+git add .
+git commit -m "Your message"
+```
+
+--push the new branch and changes to github repo
+```
+export https_proxy=http://192.168.36.36:3128
+git push origin feature/ssh-xml-files
+```
+
+
+###########################################################
+
+How to make changes to develop branch then sync those changes to master branch:
+Step-by-Step Workflow
+1️⃣ Make changes in develop
+```
+git checkout develop
+# Make changes to your files
+git add .
+git commit -m "Your commit message"
+```
+
+2️⃣ Push changes to the remote develop branch
+```
+export https_proxy=http://192.168.36.36:3128
+git push origin develop
+```
+
+3️⃣ Switch to master and pull the latest
+```
+git checkout master
+git pull origin master
+```
+
+4️⃣ Merge develop into master
+```
+git merge develop
+```
+
+5️⃣ Push the updated master to GitHub
+```
+git push origin master
+```
+
+###########################################################
+
+Check Current Git User:
+```
+git config --global user.name
+git config --global user.email
+```
+
+Change the Global Git User:
+If you want to change the Git user globally, run:
+```
+git config --global user.name "NewUserName"
+git config --global user.email "newemail@example.com"
+```
+
+Change the Git User for a Specific Repository
+If you want to change the user only for the current project, navigate to the repository in VS Code terminal and run:
+```
+git config --local user.name "NewUserName"
+git config --local user.email "newemail@example.com"
+```
