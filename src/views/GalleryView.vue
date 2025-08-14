@@ -34,8 +34,10 @@ export default {
   },
 
   setup() {
-
+    
     // ******************************************************************
+    const test = import.meta.glob('@/assets/Images/SFW/*', { eager: true });
+    console.log('Matched files:', test);
 
     const currentCategory = ref("SFW");
     const groupCount = ref(3);

@@ -7,7 +7,7 @@
       <div class="flex flex-col justify-evenly items-start">
         <h2 class="font-thin">Hello!</h2>
         <h1 class="">I'm Jezzy Chii,</h1>
-        <p class="mt-6 text-2xl">a freelance illustrator specializing in anime-style character illustrations.</p>
+        <p class="mt-6 text-2xl">a freelance illustrator specializing in <br>anime-style character illustrations.</p>
       </div>
       <div class="hidden sm:flex flex-row justify-start items-center w-full gap-12 pr-12">
         <div class="flex flex-col justify-evenly items-center gap-2 sm:justify-self-start">
